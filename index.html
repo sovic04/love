@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400&family=Cormorant+Garamond:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #faf8f5;
+            --text-color: #2a2520;
+            --accent-color: #8b7355;
+            --subtle-border: #e8e3dc;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 18px;
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .letter-container {
+            max-width: 650px;
+            width: 100%;
+            background: white;
+            padding: 60px 50px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--subtle-border);
+            position: relative;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid var(--subtle-border);
+            pointer-events: none;
+            opacity: 0;
+            animation: borderFadeIn 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes borderFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeInSlide 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        .letter-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .letter-content p {
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: textFadeIn 0.8s ease-out forwards;
+        }
+
+        .letter-content p:nth-child(1) { animation-delay: 0.6s; }
+        .letter-content p:nth-child(2) { animation-delay: 0.7s; }
+        .letter-content p:nth-child(3) { animation-delay: 0.8s; }
+        .letter-content p:nth-child(4) { animation-delay: 0.9s; }
+        .letter-content p:nth-child(5) { animation-delay: 1s; }
+        .letter-content p:nth-child(6) { animation-delay: 1.1s; }
+        .letter-content p:nth-child(7) { animation-delay: 1.2s; }
+        .letter-content p:nth-child(8) { animation-delay: 1.3s; }
+        .letter-content p:nth-child(9) { animation-delay: 1.4s; }
+        .letter-content p:nth-child(10) { animation-delay: 1.5s; }
+        .letter-content p:nth-child(11) { animation-delay: 1.6s; }
+        .letter-content p:nth-child(12) { animation-delay: 1.7s; }
+
+        @keyframes textFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 20px;
+            opacity: 0;
+            animation: fadeInSlide 1s ease-out 1.8s forwards;
+        }
+
+        .heart-accent {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 14px;
+            color: var(--accent-color);
+            opacity: 0;
+            animation: heartPulse 2s ease-in-out 2s infinite;
+        }
+
+        @keyframes heartPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .letter-container {
+                padding: 40px 30px;
+            }
+
+            .letter-container::before {
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+            }
+
+            body {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter-container {
+                padding: 30px 25px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="heart-accent">♥</div>
+        
+        <div class="letter-header">
+            <div class="date">February 14, 2026</div>
+        </div>
+
+        <div class="letter-content">
+            <p>I keep thinking about the way you showed up when I was struggling.</p>
+
+            <p>Not with advice I didn't ask for. Not with pity. Just present. Like you already decided I was worth the mess. Most people love you when it's easy. You stayed when it wasn't.</p>
+
+            <p>I don't think you know what that did for me. I don't think you realize how much of who I'm becoming has your fingerprints on it.</p>
+
+            <p>Before you, I moved through life reactively. Distracted. Half-present. You didn't lecture me into changing. You just made me want to be more intentional. The way you live made me question how I was living. You made me realize that care isn't just a feeling. It's a daily practice. And I wasn't practicing it.</p>
+
+            <p>You love with a patience that disarms me. I mess up. I forget. I fall short. And you don't shame me for it. You just wait. You give me room to get it right. That kind of patience is sacred. It's the kind that makes someone want to grow, not out of guilt, but because they don't want to waste what you're offering.</p>
+
+            <p>I'm still learning how to show up the way you do. I don't always get it right. Sometimes I'm inconsistent. Sometimes I'm too in my head. But I'm trying. And I think part of why I'm trying is because your standard for love isn't loud or demanding. It's just steady. And steady is what I want to become.</p>
+
+            <p>You've made me softer without making me weaker. More intentional without being rigid. More aware of what I'm building and who I'm building it with.</p>
+
+            <p>I don't say this enough, but your heart is one of the most beautiful things I've encountered. The way you carry yourself under pressure. The way you extend grace when you didn't have to. The way you see people, including me, with more generosity than we probably deserve.</p>
+
+            <p>I think about the moments you could have walked away. The times I didn't deserve your patience. The days you were tired but still chose to stay present. You didn't do those things because they were easy. You did them because that's who you are. And I want you to know I see it. I see you.</p>
+
+            <p>So this isn't just a Valentine's letter. It's me saying: I see what you've done for me. I see how you've loved me. And I'm choosing, daily, to protect this. To grow with you. To be more intentional about showing up for you the way you've shown up for me.</p>
+
+            <p>Thank you for being patient with me. Thank you for staying. Thank you for making me want to live more carefully. Thank you for loving me in a way that makes me want to be better, not different.</p>
+
+            <p>I'm grateful for you. Today. Tomorrow. Always.</p>
+        </div>
+
+        <div class="signature">
+            With gratitude
+        </div>
+    </div>
+</body>
+</html>
